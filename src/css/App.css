@@ -1,0 +1,119 @@
+/* Motion utilities — work with MUI light/dark */
+@keyframes portfolio-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes portfolio-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes portfolio-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes portfolio-pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+
+.portfolio-hero-mesh {
+  background-size: 200% 200%;
+  animation: portfolio-gradient-shift 18s ease infinite;
+}
+
+.portfolio-btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+.portfolio-btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: portfolio-shimmer 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.portfolio-btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.portfolio-btn-ghost {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.portfolio-btn-ghost:hover {
+  transform: translateY(-2px);
+}
+
+.portfolio-avatar-ring {
+  animation: portfolio-float 5s ease-in-out infinite;
+}
+
+.portfolio-avatar-glow::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0.35;
+  animation: portfolio-pulse-ring 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+.portfolio-card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.portfolio-card-lift:hover {
+  transform: translateY(-6px);
+}
+
+.portfolio-chip-tilt {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio-chip-tilt:hover {
+  transform: translateY(-3px) scale(1.02);
+}
