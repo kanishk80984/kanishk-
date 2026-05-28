@@ -34,17 +34,17 @@ import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import EmojiEventsRoundedIcon from '@mui/icons-material/EmojiEventsRounded';
 import profilePhoto from '../assect/WhatsApp Image 2026-03-28 at 16.48.33.jpeg';
-import resumePdf from '../assect/A KANISHK.pdf';
+import resumePdf from '../assect/kanishk_resume.pdf';
 import { useColorMode } from '../context/ColorModeContext';
 import { useInView } from '../hooks/useInView';
 import { useActiveNavSection } from '../hooks/useActiveNavSection';
 
 const CONTACT = {
-  email: 'kanishkanandhan@gmail.com',
-  phoneDisplay: '9080929128',
-  whatsappHref: 'https://wa.me/919080929128',
-  linkedinHref: 'https://www.linkedin.com/in/kanishk-a/',
-  location: 'Erode, Tamil Nadu',
+  email: process.env.REACT_APP_EMAIL || 'kanishkanandhan@gmail.com',
+  phoneDisplay: process.env.REACT_APP_PHONE || '9080929128',
+  whatsappHref: process.env.REACT_APP_WHATSAPP_HREF || 'https://wa.me/919080929128',
+  linkedinHref: process.env.REACT_APP_LINKEDIN_HREF || 'https://www.linkedin.com/in/kanishk-a/',
+  location: process.env.REACT_APP_LOCATION || 'Erode, Tamil Nadu',
 };
 
 const navItems = [
@@ -112,24 +112,32 @@ export default function Portfolio() {
 
   const skillGroups = [
     {
-      title: 'Programming',
+      title: 'Programming Languages',
       items: ['Java', 'JavaScript', 'HTML', 'CSS'],
     },
     {
-      title: 'Frameworks',
-      items: ['React.js', 'Node.js'],
+      title: 'Frontend',
+      items: ['React.js', 'React Native', 'Flutter'],
+    },
+    {
+      title: 'Backend',
+      items: ['Node.js', 'REST APIs', 'Webhooks'],
+    },
+    {
+      title: 'Databases',
+      items: ['MySQL', 'MongoDB'],
     },
     {
       title: 'Automation & AI',
-      items: ['n8n', 'AI Agents'],
+      items: ['n8n', 'AI Agents', 'AI Automation'],
     },
     {
       title: 'Tools',
-      items: ['REST APIs', 'Webhooks', 'MySQL', 'MongoDB', 'XAMPP', 'Git'],
+      items: ['Git', 'Postman', 'XAMPP'],
     },
     {
-      title: 'Core',
-      items: ['Problem Solving', 'OOPS'],
+      title: 'Core Skills',
+      items: ['Problem Solving', 'OOP', 'API Integration', 'Full Stack Development'],
     },
   ];
 
@@ -148,56 +156,108 @@ export default function Portfolio() {
     },
   ];
 
-  const experience = {
-    role: 'Full Stack Development Intern',
-    company: 'Webase Brandings',
-    location: 'Erode',
-    points: [
-      'Developed AI agents and WhatsApp-based e-commerce systems.',
-      'Designed and implemented n8n workflows.',
-      'Integrated WhatsApp API for customer interaction and order processing.',
-      'Built frontend interfaces and backend logic using modern web technologies.',
-      'Designed database schemas and handled API integrations.',
-    ],
-  };
+  const experiences = [
+    {
+      role: 'Full Stack Development Intern',
+      company: 'Webase Brandings',
+      location: 'Erode, Tamil Nadu',
+      period: '6 Months',
+      points: [
+        'Developed autonomous AI agents and WhatsApp automation systems to optimize customer engagement.',
+        'Designed and implemented complex, automated workflows using n8n, APIs, and webhooks.',
+        'Integrated frontend interfaces with robust backend architectures for dynamic data updates.',
+        'Contributed to Flutter, Node.js, and MySQL codebases across full-stack applications.',
+        'Developed responsive frontend pages and structured backend database modules.',
+      ],
+    },
+    {
+      role: 'Full Stack Development Intern',
+      company: 'NSIC Chennai',
+      location: 'Chennai, Tamil Nadu',
+      period: 'Internship',
+      points: [
+        'Designed and developed interactive, responsive user interface modules.',
+        'Assisted in relational database design and schema structure configuration.',
+        'Integrated backend APIs and services to ensure solid full-stack connectivity.',
+        'Practiced modern responsive UI principles and RESTful API development concepts.',
+      ],
+    },
+  ];
 
   const projects = [
     {
-      title: 'Edu-Connect',
-      subtitle: 'College Academic Portal',
+      title: 'Edu-Connect – College Academic Portal',
+      subtitle: 'Full Stack Academic Management Platform',
       points: [
-        'Developed a full-stack academic management system using React.js and Node.js.',
-        'Designed REST APIs for managing student academic data.',
-        'Built responsive UI for admin, staff, and advisors.',
-        'Integrated WhatsApp API to send student results automatically.',
+        'Developed a full-stack academic management system featuring personalized dashboards for admins, staff, and advisors.',
+        'Designed and implemented REST APIs for secure management and retrieval of student records.',
+        'Integrated WhatsApp API to automatically distribute academic results and real-time notifications to parents and students.',
+        'Optimized administrative workflows and improved user-to-system communication response times.',
       ],
-      tags: ['React.js', 'Node.js', 'REST APIs', 'WhatsApp API'],
+      tags: ['React.js', 'Node.js', 'MySQL', 'REST APIs', 'WhatsApp API'],
     },
     {
       title: 'WhatsApp E-Commerce Automation',
-      subtitle: 'n8n workflows',
+      subtitle: 'Automated Sales & Support Workflows',
       points: [
-        'Developed WhatsApp-based e-commerce automation using n8n workflows.',
-        'Implemented product listing, order placement, and payment integration.',
-        'Automated customer interactions and order confirmations.',
+        'Engineered end-to-end WhatsApp-based e-commerce automation systems utilizing n8n workflows, APIs, and webhooks.',
+        'Automated product listings, catalogs, order placement, and confirmation pipelines.',
+        'Integrated secure payment gateways directly into automated client chat loops.',
+        'Reduced support response times by introducing automated FAQ and chatbot response scripts.',
       ],
-      tags: ['n8n', 'WhatsApp', 'Automation'],
+      tags: ['n8n', 'APIs', 'Webhooks', 'Payment Gateway'],
+    },
+    {
+      title: 'AI Automation & Chatbot Assistant',
+      subtitle: 'Intelligent Operations Pipeline',
+      points: [
+        'Designed custom AI agents to automate business processes, data filtering, and decision-making pipelines.',
+        'Developed real-time chatbot assistants with API configurations for intelligent task execution.',
+        'Integrated multi-platform APIs and automation tools to optimize day-to-day operations.',
+      ],
+      tags: ['AI Agents', 'APIs', 'Automation Tools', 'n8n'],
+    },
+    {
+      title: 'NEET Exam Preparation Portal',
+      subtitle: 'SaaS Product for Online Learning',
+      points: [
+        'Co-developed a robust SaaS-based exam preparation platform supporting mock test taking and live classes.',
+        'Designed responsive web and mobile interfaces using React.js and React Native.',
+        'Implemented anti-cheating tracking and activity detection system for exams.',
+        'Integrated live chat widgets and flexible exam scheduling features.',
+      ],
+      tags: ['React.js', 'React Native', 'Node.js', 'MongoDB', 'SaaS'],
     },
   ];
 
   const achievements = [
     {
-      title: 'AI automation & agents',
+      title: 'Team Leadership Award',
       points: [
-        'Built AI agents to automate workflows and decision-making.',
-        'Integrated APIs for real-time interaction.',
-        'Designed automation pipelines.',
+        'Webase Brandings (Awarded with a cash prize of ₹10,000 for outstanding leadership and performance during internship).',
       ],
     },
     {
-      title: '2nd Prize — Rapid Coding',
+      title: 'Best Team Project Award',
+      points: [
+        'Edu-Connect Pro SMS Portal (Awarded with a cash prize of ₹10,000 for innovative communication and dashboard systems).',
+      ],
+    },
+    {
+      title: '2nd Prize — Rapid Coding Competition',
       points: ['CIT Coimbatore'],
       compact: true,
+    },
+  ];
+
+  const certifications = [
+    {
+      title: 'NPTEL Java Programming Certification',
+      issuer: 'National Programme on Technology Enhanced Learning (NPTEL)',
+    },
+    {
+      title: 'Full Stack Development Certification',
+      issuer: 'NSIC Chennai',
     },
   ];
 
@@ -446,7 +506,7 @@ export default function Portfolio() {
                   variant="overline"
                   sx={{ color: 'primary.main', letterSpacing: '0.18em', fontWeight: 600 }}
                 >
-                  Software Developer
+                  Full Stack Developer
                 </Typography>
                 <Typography
                   variant="h2"
@@ -467,7 +527,7 @@ export default function Portfolio() {
                   KANISHK A
                 </Typography>
                 <Typography variant="h6" sx={{ color: 'text.secondary', fontWeight: 500, mb: 2 }}>
-                  Automation &amp; AI
+                  AI Automation Developer
                 </Typography>
                 <Typography
                   variant="body1"
@@ -479,9 +539,7 @@ export default function Portfolio() {
                     lineHeight: 1.75,
                   }}
                 >
-                  Seeking a software development role where I can leverage front-end development,
-                  automation (n8n), and AI agent creation to build scalable, intelligent
-                  applications.
+                  A results-driven developer specializing in building scalable web applications and seamless automation workflows. Experienced in React.js, Node.js, and Mobile App Development (React Native & Flutter), with a strong focus on AI Automation, APIs, and intelligent AI agents to optimize operations.
                 </Typography>
 
                 <Stack
@@ -543,7 +601,7 @@ export default function Portfolio() {
                     }}
                     startIcon={<DownloadRoundedIcon />}
                   >
-                    Download resume
+                    Download Resume
                   </Button>
                   <Button
                     variant="outlined"
@@ -560,7 +618,7 @@ export default function Portfolio() {
                     }}
                     startIcon={<EmailRoundedIcon />}
                   >
-                    Hire / contact
+                    Get In Touch
                   </Button>
                 </Stack>
               </Box>
@@ -574,13 +632,13 @@ export default function Portfolio() {
               Profile
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.9, mb: 2 }}>
-              I focus on clear UI, reliable APIs, and automation that saves time. My experience spans
-              React and Node, n8n workflows, WhatsApp integrations, and AI agents for real business
-              outcomes.
+              I am a passionate Full Stack &amp; AI Automation Developer dedicated to building scalable web applications, robust mobile applications, and highly efficient automation workflows. With strong problem-solving abilities and deep API integration skills, I specialize in crafting seamless user experiences and intelligent systems.
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.9, mb: 2 }}>
+              My core interests lie in React.js, Node.js, React Native, Flutter, and developing autonomous AI Agents to build next-generation SaaS products. I thrive on translating complex business requirements into elegant, high-performing code and automated pipelines.
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.9 }}>
-              Based in {CONTACT.location}. Open to roles where I can grow as a software developer
-              while shipping production-quality features.
+              Based in {CONTACT.location}. I am actively seeking software development and automation roles where I can contribute to shipping production-quality software and impactful AI solutions.
             </Typography>
           </Container>
         </AnimatedSection>
@@ -671,48 +729,53 @@ export default function Portfolio() {
             <Typography variant="h4" component="h2" sx={{ fontWeight: 700, mb: 3 }}>
               Experience
             </Typography>
-            <Card
-              elevation={0}
-              className="portfolio-card-lift"
-              sx={{
-                border: '1px solid',
-                borderColor: 'divider',
-                borderRadius: 3,
-                overflow: 'hidden',
-                bgcolor: 'background.paper',
-              }}
-            >
-              <Box
-                sx={{
-                  px: { xs: 2.5, sm: 3 },
-                  py: 2,
-                  background: isLight
-                    ? 'linear-gradient(90deg, rgba(14,165,233,0.08), transparent)'
-                    : 'linear-gradient(90deg, rgba(56,189,248,0.12), transparent)',
-                }}
-              >
-                <Stack direction="row" alignItems="center" spacing={1.5}>
-                  <WorkRoundedIcon color="primary" />
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                      {experience.role}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {experience.company} · {experience.location}
-                    </Typography>
+            <Stack spacing={3}>
+              {experiences.map((exp, idx) => (
+                <Card
+                  key={idx}
+                  elevation={0}
+                  className="portfolio-card-lift"
+                  sx={{
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    borderRadius: 3,
+                    overflow: 'hidden',
+                    bgcolor: 'background.paper',
+                  }}
+                >
+                  <Box
+                    sx={{
+                      px: { xs: 2.5, sm: 3 },
+                      py: 2,
+                      background: isLight
+                        ? 'linear-gradient(90deg, rgba(14,165,233,0.08), transparent)'
+                        : 'linear-gradient(90deg, rgba(56,189,248,0.12), transparent)',
+                    }}
+                  >
+                    <Stack direction="row" alignItems="center" spacing={1.5}>
+                      <WorkRoundedIcon color="primary" />
+                      <Box>
+                        <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                          {exp.role}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {exp.company} · {exp.location} {exp.period ? `(${exp.period})` : ''}
+                        </Typography>
+                      </Box>
+                    </Stack>
                   </Box>
-                </Stack>
-              </Box>
-              <CardContent sx={{ pt: 2 }}>
-                <Stack component="ul" spacing={1.25} sx={{ m: 0, pl: 2.25 }}>
-                  {experience.points.map((pt) => (
-                    <Typography key={pt} component="li" variant="body2" color="text.secondary" sx={{ lineHeight: 1.75 }}>
-                      {pt}
-                    </Typography>
-                  ))}
-                </Stack>
-              </CardContent>
-            </Card>
+                  <CardContent sx={{ pt: 2 }}>
+                    <Stack component="ul" spacing={1.25} sx={{ m: 0, pl: 2.25 }}>
+                      {exp.points.map((pt) => (
+                        <Typography key={pt} component="li" variant="body2" color="text.secondary" sx={{ lineHeight: 1.75 }}>
+                          {pt}
+                        </Typography>
+                      ))}
+                    </Stack>
+                  </CardContent>
+                </Card>
+              ))}
+            </Stack>
           </Container>
         </AnimatedSection>
 
@@ -767,7 +830,7 @@ export default function Portfolio() {
         <AnimatedSection id="achievements" sx={{ py: { xs: 7, md: 9 } }} delay={50}>
           <Container maxWidth="lg">
             <Typography variant="h4" component="h2" sx={{ fontWeight: 700, mb: 3 }}>
-              Achievements &amp; interests
+              Achievements &amp; Interests
             </Typography>
             <Stack spacing={2.5}>
               {achievements.map((a) => (
@@ -808,6 +871,40 @@ export default function Portfolio() {
                 </Card>
               ))}
             </Stack>
+
+            <Typography variant="h5" component="h3" sx={{ mt: 5, mb: 2.5, fontWeight: 700 }}>
+              Certifications
+            </Typography>
+            <Stack spacing={2.5} sx={{ mb: 4 }}>
+              {certifications.map((c) => (
+                <Card
+                  key={c.title}
+                  elevation={0}
+                  className="portfolio-card-lift"
+                  sx={{
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    borderRadius: 3,
+                    bgcolor: 'background.paper',
+                  }}
+                >
+                  <CardContent sx={{ p: { xs: 2.5, sm: 3 } }}>
+                    <Stack direction="row" alignItems="flex-start" spacing={1.5}>
+                      <SchoolRoundedIcon color="primary" sx={{ mt: 0.25 }} />
+                      <Box sx={{ flex: 1 }}>
+                        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1.05rem' }}>
+                          {c.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+                          {c.issuer}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </CardContent>
+                </Card>
+              ))}
+            </Stack>
+
             <Typography variant="subtitle2" sx={{ mt: 3, mb: 1.5, fontWeight: 700 }}>
               Interests
             </Typography>
